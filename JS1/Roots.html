@@ -3,6 +3,11 @@
 <TITLE>Корни квадратного уравнения
 </TITLE>
 <script type="text/javascript" src="Roots.js"></script>
+<style>
+input.but{
+position:fixed; top:200;  left:100;
+}   
+  </style>
 </HEAD>
 <BODY>
 
@@ -20,10 +25,10 @@
 x1= <input type="text" id="4" size="3" alt="x1" > x2= <input type="text" id="5" size="3" > 
 </form>
 <script>generate()</script>
-
-
-
-
-
+<input class="but" type="button" onclick="del(0)" value="Delete 1 row" style="top:200" ></input>
+<input class="but" type="button" onclick="del(1)" value="Delete 2 row" style="top:224"></input>
+<input class="but" type="button" onclick="del(2)" value="Delete 3 row" style="top:248"></input>
+<input class="but" type="button" onclick="del(3)" value="Delete 4 row" style="top:272"></input>
+<input class="but" type="button" onclick="del(4)" value="Delete 5 row" style="top:296"></input>
 </BODY>
 </HTML>

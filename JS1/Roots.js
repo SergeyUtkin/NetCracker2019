@@ -55,6 +55,27 @@ for ( var i = rows.length-1; i >0; i -- )
 }
 }
 
+function del(a){
+	var rows = newElem.getElementsByTagName("tr");
+	
+for ( var i = a; i <rows.length-1; i ++ )
+{
+	var cells=newElem.rows[i].cells;
+	var tmp=newElem.rows[i+1].cells[0].innerHTML;
+	var temp=newElem.rows[i+1].cells[1].innerHTML;
+		cells[0].innerHTML=tmp;
+		cells[1].innerHTML=temp;
+}
+	
+	newElem.rows[rows.length-1].cells[0].innerHTML=0;
+	newElem.rows[rows.length-1].cells[1].innerHTML=0;
+	
+	
+	
+}
+
+
+
 
 function roots(a, b, c)
 {
@@ -90,8 +111,7 @@ function roots(a, b, c)
 	
 	document.getElementById("4").value=x1;
 	document.getElementById("5").value=x2;
-	var tmp=document.getElementById("t2");
-	tmp.rows[0].cells[1].value=x2;
+	
 }
 
 
