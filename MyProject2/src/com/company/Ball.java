@@ -76,5 +76,22 @@ public class Ball {
         return "Ball[(" + x + "," + y + "),speed=(" + xDelta + "," + yDelta + ")]";
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) return true;
+        if (obj.getClass() != this.getClass()) return false;
+        Ball ball = (Ball) obj;
+        return ball.getX() == x && ball.getY() == y && ball.getRadius() == radius && ball.getxDelta() == xDelta && ball.getyDelta() == yDelta;
+    }
 
+    @Override
+    public int hashCode() {
+        int result = 13;
+        result = 31 * result + Float.floatToIntBits(x);
+        result = 31 * result + Float.floatToIntBits(y);
+        result = 31 * result + radius;
+        result = 31 * result + Float.floatToIntBits(xDelta);
+        result = 31 * result + Float.floatToIntBits(yDelta);
+        return result;
+    }
 }

@@ -85,7 +85,7 @@ public class MyComplex {
     }
 
     public MyComplex addNew(MyComplex right) {
-        return new MyComplex(this.real+right.getReal(),this.imag+right.getImag());
+        return new MyComplex(this.real + right.getReal(), this.imag + right.getImag());
     }
 
     public MyComplex subtarct(MyComplex right) {
@@ -95,24 +95,39 @@ public class MyComplex {
     }
 
     public MyComplex subtarctNew(MyComplex right) {
-        return new MyComplex(this.real-right.getReal(),this.imag-right.getImag());
+        return new MyComplex(this.real - right.getReal(), this.imag - right.getImag());
 
     }
 
     public MyComplex multoply(MyComplex right) {
-        this.real=real*right.getReal()-(imag*right.getImag());
-        this.imag=real*right.getImag()+imag*right.getReal();
+        this.real = real * right.getReal() - (imag * right.getImag());
+        this.imag = real * right.getImag() + imag * right.getReal();
         return this;
     }
 
     public MyComplex divide(MyComplex right) {
-        real=(real*right.getReal()+imag*right.getImag())/(right.getReal()*right.getReal()+right.getImag()*right.getImag());
-        imag=(imag*right.getReal()-real*right.getImag())/(right.getReal()*right.getReal()+right.getImag()*right.getImag());
+        real = (real * right.getReal() + imag * right.getImag()) / (right.getReal() * right.getReal() + right.getImag() * right.getImag());
+        imag = (imag * right.getReal() - real * right.getImag()) / (right.getReal() * right.getReal() + right.getImag() * right.getImag());
         return this;
     }
 
     public MyComplex conjugate() {
-        return new MyComplex(real,-imag);
+        return new MyComplex(real, -imag);
     }
 
+    @Override
+    public int hashCode() {
+        int result = 17;
+        result = 31 * result + (int) (Double.doubleToLongBits(real) ^ (Double.doubleToLongBits(real) >>> 32));
+        result = 31 * result + (int) (Double.doubleToLongBits(imag) ^ (Double.doubleToLongBits(imag) >>> 32));
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) return true;
+        if (obj.getClass() != this.getClass()) return false;
+        MyComplex comp = (MyComplex) obj;
+        return comp.getReal() == real && comp.getImag() == imag;
+    }
 }

@@ -1,5 +1,7 @@
 package com.company;
 
+import java.lang.reflect.Array;
+
 public class MyPolynomial {
     private double[] coeffs;
 
@@ -58,20 +60,43 @@ public class MyPolynomial {
             for (int j = count; j < max; j++) {
                 coeffs3[j] = coeffs[j];
             }
-        if(i==2)
+        if (i == 2)
             for (int j = count; j < max; j++) {
                 coeffs3[j] = coeffs2[j];
             }
-            return new MyPolynomial(coeffs3);
+        return new MyPolynomial(coeffs3);
     }
-     public MyPolynomial multiply(MyPolynomial right){
-        double[] coeffs2=right.getCoeffs();
-        double[] coeffs3=new double[this.getDegree()+right.getDegree()+1];
-        for(int i=0;i<coeffs.length;i++){
-            for (int j=0;j<coeffs2.length;j++)
-                coeffs3[i+j]=coeffs3[i+j]+coeffs[i]*coeffs2[j];
-        }
-        return  new MyPolynomial(coeffs3);
-     }
 
+    public MyPolynomial multiply(MyPolynomial right) {
+        double[] coeffs2 = right.getCoeffs();
+        double[] coeffs3 = new double[this.getDegree() + right.getDegree() + 1];
+        for (int i = 0; i < coeffs.length; i++) {
+            for (int j = 0; j < coeffs2.length; j++)
+                coeffs3[i + j] = coeffs3[i + j] + coeffs[i] * coeffs2[j];
+        }
+        return new MyPolynomial(coeffs3);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+        for (int i = 0; i < coeffs.length; i++) {
+            result =31 * result + (int) (Double.doubleToLongBits(coeffs[i]) ^ (Double.doubleToLongBits(coeffs[i]) >>> 32));
+        }
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj==this) return true;
+        if(obj.getClass()!= this.getClass()) return false;
+        MyPolynomial pol=(MyPolynomial) obj;
+        double[] arr=pol.getCoeffs();
+        boolean flag=true;
+        for (int i=0;i<coeffs.length;i++)
+            if(coeffs[i]!=arr[i])
+                flag=false;
+
+        return flag;
+    }
 }
