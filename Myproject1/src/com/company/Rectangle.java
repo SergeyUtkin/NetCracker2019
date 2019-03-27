@@ -1,8 +1,10 @@
 package com.company;
 
+import java.util.Random;
+
 public class Rectangle {
-    private float length= 1.0f;
-    private float width= 1.0f;
+    private float length = 1.0f;
+    private float width = 1.0f;
 
     public Rectangle() {
     }
@@ -29,15 +31,33 @@ public class Rectangle {
     }
 
     @Override
-    public String toString(){
-        String a="Rectangle[length = " + this.length + " , " + "width= " + this.width + " ]";
+    public String toString() {
+        String a = "Rectangle[length = " + this.length + " , " + "width= " + this.width + " ]";
         return a;
     }
 
-    public double getArea(){
-        return length*width;
+    public double getArea() {
+        return length * width;
     }
-    public double getPerimeter(){
-        return 2*(length+width);
+
+    public double getPerimeter() {
+        return 2 * (length + width);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+        result = 31 * result + Float.floatToIntBits(length);
+        result = 31 * result + Float.floatToIntBits(width);
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) return true;
+        if (obj == this) return false;
+        if (obj.getClass() != this.getClass()) return false;
+        Rectangle rect = (Rectangle) obj;
+        return rect.getLength() == length && rect.getWidth() == width;
     }
 }

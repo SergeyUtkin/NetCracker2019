@@ -18,56 +18,74 @@ public class MyTriangle {
     }
 
 
-
-    public double getPerimeter(){
-        double a=v1.distance(v2) + v2.distance(v3) + v3.distance(v1);
+    public double getPerimeter() {
+        double a = v1.distance(v2) + v2.distance(v3) + v3.distance(v1);
         return a;
     }
-    public String getType(){
-        double a=v1.distance(v2);
-        double b=v2.distance(v3);
-        double c=v3.distance(v1);
-        String type=null;
 
-        if(a>b && a>c){
-            if(b>c)
-            type= testing(a,b,c);
+    public String getType() {
+        double a = v1.distance(v2);
+        double b = v2.distance(v3);
+        double c = v3.distance(v1);
+        String type = null;
+
+        if (a > b && a > c) {
+            if (b > c)
+                type = testing(a, b, c);
             else
-                type= testing(a,c,b);
+                type = testing(a, c, b);
         }
-        if(a>b && a<c){
-            type= testing(c,a,b);
+        if (a > b && a < c) {
+            type = testing(c, a, b);
         }
-        if(a<b && a>c){
-            type= testing(b,a,c);
+        if (a < b && a > c) {
+            type = testing(b, a, c);
         }
-        if(a<b && a<c){
-            if(b<c)
-                type= testing(c,b,a);
+        if (a < b && a < c) {
+            if (b < c)
+                type = testing(c, b, a);
             else
-                type= testing(b,c,a);
+                type = testing(b, c, a);
         }
         return type;
 
     }
 
-    private String testing(double a,double b,double c){
-        String type=null;
-        if(a*a>b*b + c*c){
-            type="obtuse triangle";
+    private String testing(double a, double b, double c) {
+        String type = null;
+        if (a * a > b * b + c * c) {
+            type = "obtuse triangle";
         }
-        if(a*a == b*b + c*c){
-            type= "right triangle";
+        if (a * a == b * b + c * c) {
+            type = "right triangle";
         }
-        if(a*a<b*b + c*c){
-            type=  "acute triangle";
+        if (a * a < b * b + c * c) {
+            type = "acute triangle";
         }
         return type;
     }
+
     @Override
     public String toString() {
         String a = "MyTriangle[v1=" + v1.toString() + ", v2=" + v2.toString() + ", v3=" + v3.toString() + "]";
         return a;
     }
 
+    @Override
+    public int hashCode() {
+        int result = 17;
+        result = 31 * result + v1.hashCode();
+        result = 31 * result + v2.hashCode();
+        result = 31 * result + v3.hashCode();
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) return true;
+        if (obj == null) return false;
+        if (obj.getClass() != this.getClass()) return false;
+        MyTriangle triangle = (MyTriangle) obj;
+        return triangle.v3.equals(v3) && triangle.v1.equals(v1) && triangle.v2.equals(v2);
+    }
 }
