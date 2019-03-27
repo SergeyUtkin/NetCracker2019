@@ -1,9 +1,9 @@
 package com.company;
 
-public class control {
+public class Control {
     int a=1,b=3,c=5,d=7,e=9;
     enum Numbers {a,b,c,d,e};
-    public control() {
+    public Control() {
 
         long startTime = System.nanoTime();
         ifelse();

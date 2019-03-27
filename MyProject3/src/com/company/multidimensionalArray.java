@@ -3,8 +3,8 @@ package com.company;
 import java.util.Arrays;
 import java.util.Random;
 
-public class multidimensionalArray {
-    public multidimensionalArray() {
+public class MultidimensionalArray {
+    public MultidimensionalArray() {
         sum();
         max();
         maxModule();

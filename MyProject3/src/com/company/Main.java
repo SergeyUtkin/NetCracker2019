@@ -7,12 +7,12 @@ public class Main {
 
     public static void main(String[] args) {
         Sort sort=new Sort();
-        n_factorial fact=new n_factorial();
-        nested_loops np=new nested_loops();
+        NFactorial fact=new NFactorial();
+        NestedLoops np=new NestedLoops();
         Array array=new Array();
-        multidimensionalArray mArray=new multidimensionalArray();
+        MultidimensionalArray mArray=new MultidimensionalArray();
         System.out.println();
-        control cont=new control();
+        Control cont=new Control();
 
         // write your code here
     }

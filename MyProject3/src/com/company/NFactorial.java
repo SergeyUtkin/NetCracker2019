@@ -1,9 +1,9 @@
 package com.company;
 
-public class n_factorial {
+public class NFactorial {
     private int factorial=1;
     boolean flag=true;
-    public n_factorial(){
+    public NFactorial(){
         int n = 5 + (int) (Math.random() * 10);
         System.out.println(n);
         long startTime = System.nanoTime();

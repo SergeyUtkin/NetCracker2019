@@ -1,7 +1,7 @@
 package com.company;
 
-public class nested_loops {
-    public nested_loops(){
+public class NestedLoops {
+    public NestedLoops(){
         rectangle(5,5);
         System.out.println();
         trangle1(5,5);
