@@ -63,6 +63,7 @@ public class Container {
     @Override
     public boolean equals(Object obj) {
         if (obj == this) return true;
+        if (obj == null) return false;
         if (obj.getClass() != this.getClass()) return false;
         Container cont = (Container) obj;
         return cont.getX1() == x1 && cont.getY1() == y1 && cont.getX2()==x2 && cont.getY2()==y2;

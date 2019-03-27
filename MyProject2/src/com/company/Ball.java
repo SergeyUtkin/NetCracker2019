@@ -79,6 +79,7 @@ public class Ball {
     @Override
     public boolean equals(Object obj) {
         if (obj == this) return true;
+        if (obj == null) return false;
         if (obj.getClass() != this.getClass()) return false;
         Ball ball = (Ball) obj;
         return ball.getX() == x && ball.getY() == y && ball.getRadius() == radius && ball.getxDelta() == xDelta && ball.getyDelta() == yDelta;

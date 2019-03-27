@@ -126,6 +126,7 @@ public class MyComplex {
     @Override
     public boolean equals(Object obj) {
         if (obj == this) return true;
+        if (obj == null) return false;
         if (obj.getClass() != this.getClass()) return false;
         MyComplex comp = (MyComplex) obj;
         return comp.getReal() == real && comp.getImag() == imag;
